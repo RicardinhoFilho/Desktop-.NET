@@ -37,50 +37,44 @@ namespace WindowsFormsApp1
 
         }
 
-        private void button4_Click(object sender, EventArgs e)
-        {
-            DialogResult retorno = MessageBox.Show("Vamos estudar C#?", "Título", MessageBoxButtons.YesNo);
-            if (retorno == DialogResult.Yes)
-            {
-                MessageBox.Show("Você digitou SIM");
-            }
-            else
-            {
-                MessageBox.Show("Você digitou NÃO!");
-            }
-        }
-
-        private void button6_Click(object sender, EventArgs e)
-        {
-            MessageBox.Show("Ouviu o som?", "Alerta Critico", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-        }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-            MessageBox.Show("Alerta Simples");
-        }
-
-        private void button3_Click(object sender, EventArgs e)
-        {
-            MessageBox.Show("Alerta Simples com título", "Título aqui!");
-        }
-
-        private void button5_Click(object sender, EventArgs e)
-        {
-            DialogResult retorno = MessageBox.Show("Vamos estudar C#?", "Título", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question);
-            if (retorno == DialogResult.Yes)
-            {
-                MessageBox.Show("Você digitou SIM");
-            }
-            else if(retorno == DialogResult.No)
-            {
-                MessageBox.Show("Você digitou NÃO!");
-            }
-        }
+      
+      
 
         private void Form1_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void button2_Click_1(object sender, EventArgs e)
+        {
+
+
+            this.Close();
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            try
+            {
+                if (txt_usuario.Text.Equals("03411614030")  
+                    && txt_senha.Text.Equals("teste"))
+                {
+                    var menu = new MenuRestrito();
+                    menu.Show();
+                    this.Visible = false;
+                }
+                else
+                {
+                    MessageBox.Show("Senha ou Usuario invalido!",
+                   "Ops", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    txt_usuario.Focus();
+                    txt_senha.Text = "";
+                }
+            }catch(Exception error)
+            {
+                MessageBox.Show(error.Message,
+                    "Desculpe", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }
